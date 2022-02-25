@@ -1,0 +1,63 @@
+.css-1sc6tpb-MuiLinearProgress-root-MuiMobileStepper-progress {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  height: 5px;
+  z-index: 0;
+  background-color: rgb(244, 196, 195);
+  width: 100%;
+  border-radius: 5px;
+}
+
+Button.answers {
+  background-color: #fff;
+  color: #ff5760;
+  text-transform: none;
+  display: flex;
+  justify-content: flex-start;
+}
+Button.answers.active,
+Button.answers:hover {
+  background: linear-gradient(-90deg, #ff5760, #f8579b);
+  color: #fff;
+}
+Button.answers.correct {
+  animation: correct 3s ease forwards;
+}
+@keyframes correct {
+  0%,
+  22%,
+  42% {
+    background-color: #fff;
+  }
+  20%,
+  40%,
+  60% {
+    background-color: #ff5760;
+  }
+  62%,
+  100% {
+    background-color: green;
+    color: #fff;
+  }
+}
+Button.answers.wrong {
+  animation: wrong 3s ease forwards;
+}
+@keyframes wrong {
+  0%,
+  22%,
+  42% {
+    background-color: #fff;
+  }
+  20%,
+  40%,
+  60% {
+    background-color: #ff5760;
+  }
+  62%,
+  100% {
+    background-color: red;
+    color: #fff;
+  }
+}
