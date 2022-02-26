@@ -143,7 +143,7 @@ const optionBtnTheme = createTheme({
   },
 });
 
-const minSecs = { minutes: 0, seconds: 10 };
+const minSecs = { minutes: 0, seconds: 0 };
 
 function QuizHeader() {
   const classes = useStyles();
@@ -153,9 +153,7 @@ function QuizHeader() {
   const [className, setClassName] = useState("answers");
 
   const handleNext = () => {
-    minSecs.seconds = 0
-      ? setActiveStep((prevActiveStep) => prevActiveStep + 1)
-      : (activeStep = 0);
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
@@ -165,6 +163,7 @@ function QuizHeader() {
   return (
     <>
       <Grid container flexDirection="column" sx={{ px: 5 }}>
+        {minSecs.seconds == 0 ? handleNext : console.log("nothinhg to show")}
         <Grid item width="100%" sx={{ mb: 5 }}>
           <Grid container justifyContent="space-between">
             <Grid
@@ -266,11 +265,7 @@ function QuizHeader() {
                   borderRadius="5px"
                   align="center"
                 >
-                  <CountDownTimer
-                    minSecs={minSecs}
-                    onLoad={handleNext}
-                    
-                  ></CountDownTimer>
+                  <CountDownTimer minSecs={minSecs}></CountDownTimer>
                 </Typography>
               </Grid>
             </Grid>
